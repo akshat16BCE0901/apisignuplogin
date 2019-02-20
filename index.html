@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.15.1/dist/tf.min.js"></script>
+        <script src="index.js"></script>
+        <style>
+            
+        </style>
+        </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h2 class="text-center">SIGN UP</h2>
+                    <form method="post" action="http://localhost:3000/submit">  
+                        <table class="table table-striped" border="1">
+                            <tr>
+                                <td>USERNAME</td>
+                                <td><input name="uname" type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td>PASSWORD</td>
+                                <td><input type="password" name="password" /></td>
+                            </tr>
+                            <tr>
+                                <td><button class="text-center btn btn-primary" type="submit">SUBMIT</button></td>
+                                <td><button class="text-center btn btn-primary" type="reset">RESET</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h2 class="text-center">LOGIN</h2>
+                    <form method="post" action="http://localhost:3000/login">  
+                        <table class="table table-striped" border="1">
+                            <tr>
+                                <td>USERNAME</td>
+                                <td><input name="uname" type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td>PASSWORD</td>
+                                <td><input type="password" name="password" /></td>
+                            </tr>
+                            <tr>
+                                <td><button class="text-center btn btn-primary" type="submit">SUBMIT</button></td>
+                                <td><button class="text-center btn btn-primary" type="reset">RESET</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+            <!-- <div ng-app="myapp" ng-controller="myctrl" class="row">
+                <table class="table-striped table" border="1" cellpadding="10px">
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                    </tr>
+                    <tr ng-repeat="x in data">
+                        <td>{{x._id}}</td>
+                        <td>{{x.username}}</td>
+                        <td>{{x.password}}</td>
+                    </tr>
+                </table>
+            </div> -->
+        </div>
+    </body>
+    <script>
+        var app = angular.module("myapp",[]);
+        app.controller("myctrl",function($scope,$http)
+        {
+            $scope.tt = "Akshat";
+            $http.get("myfile.php").then(function(response)
+            {
+                $scope.data = response.data.records;
+            });
+        });
+    </script>
+</html>
